@@ -2,7 +2,7 @@ export function createCharacterCard() {
     const characterImageSrc = "https://rickandmortyapi.com/api/character/avatar/1.jpeg";
     const characterName = "Rick Sanchez";
     const characterStatus = "Alive";
-    const characterType = null;
+    const characterType = "";
     const characterOccurrences = 51;
     const cardContent = `
     <div class="card__image-container">
@@ -31,5 +31,3 @@ export function createCharacterCard() {
   return newCard
 
 }
-
-console.log(createCharacterCard());
