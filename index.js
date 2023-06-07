@@ -27,7 +27,6 @@ async function fetchCharacters() {
         const card = createCharacterCard(character);
         cardContainer.append(card);
       });
-      return data;
     } else {
       console.error("response not OK");
     }

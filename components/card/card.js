@@ -1,5 +1,7 @@
 export default function createCharacterCard(props) {
-  const cardContent = `
+  const newCard = document.createElement("li");
+  newCard.classList.add("card");
+  newCard.innerHTML = `
     <div class="card__image-container">
       <img
         class="card__image"
@@ -23,9 +25,6 @@ export default function createCharacterCard(props) {
         <dd class="card__info-description">${props.episode.length}</dd>
       </dl>
     </div>`;
-  const newCard = document.createElement("li");
-  newCard.classList.add("card");
-  newCard.innerHTML = cardContent;
 
   return newCard;
 }
