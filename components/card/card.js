@@ -1,33 +1,31 @@
-export function createCharacterCard() {
-    const characterImageSrc = "https://rickandmortyapi.com/api/character/avatar/1.jpeg";
-    const characterName = "Rick Sanchez";
-    const characterStatus = "Alive";
-    const characterType = "";
-    const characterOccurrences = 51;
-    const cardContent = `
+export default function createCharacterCard(props) {
+  const cardContent = `
     <div class="card__image-container">
       <img
         class="card__image"
-        src=${characterImageSrc}
-        alt="${characterName}"
+        src=${props.image}
+        alt="${props.name}"
       />
       <div class="card__image-gradient"></div>
     </div>
     <div class="card__content">
-      <h2 class="card__title">${characterName}</h2>
+      <h2 class="card__title">${props.name}</h2>
       <dl class="card__info">
         <dt class="card__info-title">Status</dt>
-        <dd class="card__info-description">${characterStatus}</dd>
+        <dd class="card__info-description">${props.status}</dd>
+        <dt class="card__info-title">Gender</dt>
+        <dd class="card__info-description">${props.gender}</dd>
+        <dt class="card__info-title">Species</dt>
+        <dd class="card__info-description">${props.species}</dd>
         <dt class="card__info-title">Type</dt>
-        <dd class="card__info-description">${characterType}</dd>
+        <dd class="card__info-description">${props.type}</dd>
         <dt class="card__info-title">Occurrences</dt>
-        <dd class="card__info-description">${characterOccurrences}</dd>
+        <dd class="card__info-description">${props.episode.length}</dd>
       </dl>
-    </div>`
+    </div>`;
   const newCard = document.createElement("li");
   newCard.classList.add("card");
   newCard.innerHTML = cardContent;
 
-  return newCard
-
+  return newCard;
 }

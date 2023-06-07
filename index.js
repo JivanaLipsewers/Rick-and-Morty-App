@@ -1,3 +1,6 @@
+import createCharacterCard from "./components/card/card.js";
+import { ramCharacters } from "./config.js";
+
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
@@ -12,3 +15,24 @@ const pagination = document.querySelector('[data-js="pagination"]');
 const maxPage = 1;
 const page = 1;
 const searchQuery = "";
+
+async function fetchCharacters() {
+  try {
+    const response = await fetch(ramCharacters);
+    if (response.ok) {
+      const data = await response.json();
+      const characterData = data.results;
+      cardContainer.innerHTML = "";
+      characterData.forEach((character) => {
+        const card = createCharacterCard(character);
+        cardContainer.append(card);
+      });
+      return data;
+    } else {
+      console.error("response not OK");
+    }
+  } catch (error) {
+    console.error("API not available: ", error);
+  }
+}
+fetchCharacters();
